@@ -1,0 +1,10 @@
+DONE tool should check that a zookeeper is running?
+     since they are threaded, they die when the manager dies
+     so there cannot be any old service running from a 
+     previous run unless manually deployed.
+add get info commands about running instances
+create a client class (just as the server manager) ¿¿O el mismo objeto manager que pueda comportarse tanto como cliente como servidor segun la funcion??
+move client and server classes to lib
+add hooks for to instance commands to log everyeverwhere
+
+
