@@ -14,6 +14,7 @@ import zerorpc
 from uuid import uuid4
 from argparse import ArgumentParser
 from mess import ZookeeperInstance
+from mess import ServerManager
 from mess.utils import dotdict
 
 
@@ -57,7 +58,7 @@ def deploy_zookeeper(args):
             'zookeeperTickTime' : args.zookeeperTickTime,
             'verbose' : args.verbose
         }
-        ret = client.deploy_zookeeper(config)
+        ret = client.deployZookeeper(config)
         print(ret)
         sys.stdout.flush()
         sys.exit(0)
@@ -65,8 +66,8 @@ def deploy_zookeeper(args):
 def main_loop():
     '''TODO This is curently in the bin script. Should be moved to
     '''
-    manager = Manager(args.protocol, args.host, args.port)
-    manager.run()
+    manager = ServerManager(args.protocol, args.host, args.port)
+    manager.runRpcServer()
     sys.stdout.flush()
 
 
